@@ -9,11 +9,12 @@
   </head>
   <body>
     <!-- <script> tag should always be the last line of the body -->
-    <h1 id="Title">Rick and Morty Character List:</h1>
-
+    <nav id="navbar">
+      <img src="./Site-logo.webp" id="logo" />
+    </nav>
     <div id="navigation">
       <button onclick="prevPage()" id="btnPrev">Prev</button>
-      <input id="pageFinder" name="pageFinder">
+      <input id="pageFinder" name="pageFinder" />
       <button onclick="jumpPage(pageFinder.value)">Go To Page</button>
       <button onclick="nextPage()" id="btnNext">Next</button>
     </div>
@@ -22,6 +23,7 @@
       <button onclick="prevPage()" id="btnPrev">Prev</button>
       <button onclick="nextPage()" id="btnNext">Next</button>
     </div>
+    <a href="https://rickandmortyapi.com">Source</a>
     <script src="rickAndMortyFetch.js"></script>
   </body>
 </html>

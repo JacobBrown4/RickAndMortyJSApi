@@ -14,6 +14,14 @@ document.addEventListener("click", function (e) {
     }
   });
 
+  document.addEventListener("click",function(e){
+    if(e.target.id == "logo"){
+        currentPage = 1
+        changePage(1);
+    }
+  });
+  
+
 function renderCharacters() {
   fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
     .then((res) => res.json())
@@ -35,7 +43,7 @@ function renderCharacters() {
         charStatus.textContent = character.status;
         charImg.src = character.image;
 
-        charDiv.append(charName, charImg, charStatus);
+        charDiv.append(charImg, charName);
 
         container.appendChild(charDiv);
       });
@@ -58,7 +66,9 @@ function characterDetail(id) {
       charImg.id = "char-imgDetail";
       charImg.title = character.name;
       charStatus.className = "char-status";
+      charStatus.id = character.status;
       charName.textContent = character.name;
+      charDeets.id="char-details";
       charDeets.innerHTML =
         `Located on: ${character.location.name}` +
         "<br>" +
@@ -76,6 +86,31 @@ function characterDetail(id) {
     });
 }
 
+function getEpisodeDetailByUrl(url){
+    fetch(url)
+    .then((response) => response.json())
+    .then((episode) => {
+      const epDiv = document.createElement("div");
+      const epName = document.createElement("h2");
+      const epAirDate = document.createElement("p");
+      const epNumber = document.createElement("p");
+
+
+      epDiv.id = "ep-container";
+      epName.id = "ep-nameDetail";
+      epName.alt = episode.id;
+      epAirDate.id = "ep-airDate";
+      epNumber.id = "ep-Number";
+
+
+      epName.textContent = episode.name;
+      epAirDate.textContent = episde.air_date;
+      epNumber.textContent = episode.episode;
+
+      epDiv.append(epName,epAirDate,epNumber);
+      container.appendChild(epDiv);
+    });
+}
 function prevPage() {
   if (currentPage > 1) {
     currentPage--;
@@ -104,6 +139,7 @@ function changePage(page) {
   container.innerHTML = "";
   if (page == 1) {
     btnPrev.style.visibility = "hidden";
+    console.log(page);
   } else {
     btnPrev.style.visibility = "visible";
   }
@@ -111,7 +147,7 @@ function changePage(page) {
   if (page == maxPage) {
     btnNext.style.visibility = "hidden";
   } else {
-    btnPrev.style.visibility = "visible";
+    btnNext.style.visibility = "visible";
   }
 
   renderCharacters();

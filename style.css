@@ -1,9 +1,32 @@
+#navbar {
+  width: 100%;
+}
 #navigation {
   text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#logo {
+  margin-bottom: -30px;
+  cursor: pointer;
 }
 
-body{
-    background-color: lightblue;
+body {
+  background-color: black;
+  background-image: radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.2) 2px,
+      transparent 40px
+    ),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(151, 30, 173, 0.1) 2px, transparent 40px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 30px
+    );
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 button {
   align-items: center;
@@ -13,7 +36,7 @@ button {
   border: solid black 2px;
   box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
   box-sizing: border-box;
-  color: #000;
+  color: black;
   cursor: pointer;
   font-family: "RM Neue", sans-serif;
   font-size: 100%;
@@ -21,16 +44,17 @@ button {
   margin: 0;
   padding: 10px 21px;
   text-align: center;
-  text-transform: none;
+  text-transform:none;
+  font-weight: bold;
   transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
     opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
 }
 
-input{
-    height:38px;
-    text-align: center;
-    width: 34px;
-    border-radius: 8px;
+input {
+  height: 38px;
+  text-align: center;
+  width: 34px;
+  border-radius: 8px;
 }
 
 button:active {
@@ -40,55 +64,60 @@ button:active {
 button:hover {
   background-color: rgb(197, 245, 197);
 }
+
+#back-button{
+    margin:.75em;
+}
 #char-container {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  outline: thick lightgreen solid;
+  outline: 3px lightgreen solid;
   text-align: center;
-  padding: 1em;
   margin: 1em;
   display: inline-block;
-  border-radius: 3px;
-  background-color: white;
+  background-color: black;
+  vertical-align: top;
+  color: skyblue;
 }
 
 #char-wrapper {
   text-align: center;
 }
 
-#char-img{
-    width: 200px;
-    height: 200px;
-    padding-top: 5px;
-    cursor: pointer;
+#char-img {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
 }
 
 #char-name {
-  margin: 10px;
-  width:200px;
+  width: 190px;
   height: 50px;
-  margin: auto;
+  overflow: hidden;
 }
-#char-name:hover{
-    color:rgb(112, 112, 112);
-    cursor: pointer;
+#char-name:hover {
+  color: rgb(112, 112, 112);
+  cursor: pointer;
 }
 .char-status {
   margin: 0.2em;
   bottom: auto;
 }
 
+#char-details{
+    width: 300px;
+    margin: auto;
+}
 #Title {
   text-align: center;
 }
 
-#Alive{
-    color: green;
-
+#Alive {
+  color: green;
 }
-#Dead{
-    color: red;
+#Dead {
+  color: red;
 }
-#unknown{
-    color:black;
+#unknown {
+  color: black;
 }
