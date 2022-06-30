@@ -1,0 +1,92 @@
+#navigation {
+  text-align: center;
+}
+
+body{
+    background-color: lightblue;
+}
+button {
+  align-items: center;
+  appearance: button;
+  background-color: lightgreen;
+  border-radius: 8px;
+  border: solid black 2px;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  font-family: "RM Neue", sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+    opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+}
+
+input{
+    height:38px;
+    text-align: center;
+    width: 34px;
+    border-radius: 8px;
+}
+
+button:active {
+  background-color: darkgreen;
+}
+
+button:hover {
+  background-color: rgb(197, 245, 197);
+}
+#char-container {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  outline: thick lightgreen solid;
+  text-align: center;
+  padding: 1em;
+  margin: 1em;
+  display: inline-block;
+  border-radius: 3px;
+  background-color: white;
+}
+
+#char-wrapper {
+  text-align: center;
+}
+
+#char-img{
+    width: 200px;
+    height: 200px;
+    padding-top: 5px;
+}
+
+#char-name {
+  margin: 10px;
+  width:200px;
+  height: 50px;
+  margin: auto;
+}
+#char-name:hover{
+    color:rgb(112, 112, 112);
+}
+.char-status {
+  margin: 0.2em;
+  bottom: auto;
+}
+
+#Title {
+  text-align: center;
+}
+
+#Alive{
+    color: green;
+
+}
+#Dead{
+    color: red;
+}
+#unknown{
+    color:black;
+}
