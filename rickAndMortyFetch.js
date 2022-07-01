@@ -9,18 +9,17 @@ document.addEventListener("click", function (e) {
 });
 
 document.addEventListener("click", function (e) {
-    if (e.target.id == "back-button" || e.target.id == "char-imgDetail") {
-      changePage(currentPage);
-    }
-  });
+  if (e.target.id == "back-button" || e.target.id == "char-imgDetail") {
+    changePage(currentPage);
+  }
+});
 
-  document.addEventListener("click",function(e){
-    if(e.target.id == "logo"){
-        currentPage = 1
-        changePage(1);
-    }
-  });
-  
+document.addEventListener("click", function (e) {
+  if (e.target.id == "logo") {
+    currentPage = 1;
+    changePage(1);
+  }
+});
 
 function renderCharacters() {
   fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
@@ -52,6 +51,8 @@ function renderCharacters() {
 
 function characterDetail(id) {
   container.innerHTML = "";
+  document.getElementById("navigation").style.display = "none";
+  document.getElementById("navigation2").style.display = "none";
   fetch(`https://rickandmortyapi.com/api/character/${id}`)
     .then((response) => response.json())
     .then((character) => {
@@ -68,7 +69,7 @@ function characterDetail(id) {
       charStatus.className = "char-status";
       charStatus.id = character.status;
       charName.textContent = character.name;
-      charDeets.id="char-details";
+      charDeets.id = "char-details";
       charDeets.innerHTML =
         `Located on: ${character.location.name}` +
         "<br>" +
@@ -79,15 +80,23 @@ function characterDetail(id) {
       charImg.src = character.image;
 
       const backButton = document.createElement("button");
-      backButton.innerHTML="Go back";
+      backButton.innerHTML = "Go back";
       backButton.id = "back-button";
-      charDiv.append(charName, charImg, charName, charStatus, charDeets,backButton);
+      charDiv.append(
+        charName,
+        charImg,
+        charName,
+        charStatus,
+        charDeets,
+        backButton
+      );
       container.appendChild(charDiv);
+
     });
 }
 
-function getEpisodeDetailByUrl(url){
-    fetch(url)
+function getEpisodeDetailByUrl(url) {
+  fetch(url)
     .then((response) => response.json())
     .then((episode) => {
       const epDiv = document.createElement("div");
@@ -95,19 +104,17 @@ function getEpisodeDetailByUrl(url){
       const epAirDate = document.createElement("p");
       const epNumber = document.createElement("p");
 
-
       epDiv.id = "ep-container";
       epName.id = "ep-nameDetail";
       epName.alt = episode.id;
       epAirDate.id = "ep-airDate";
       epNumber.id = "ep-Number";
 
-
       epName.textContent = episode.name;
       epAirDate.textContent = episde.air_date;
       epNumber.textContent = episode.episode;
 
-      epDiv.append(epName,epAirDate,epNumber);
+      epDiv.append(epName, epAirDate, epNumber);
       container.appendChild(epDiv);
     });
 }
@@ -125,14 +132,15 @@ function nextPage() {
   }
 }
 
-function jumpPage(page){
-    currentPage = page;
-    changePage(page);
-
+function jumpPage(page) {
+  currentPage = page;
+  changePage(page);
 }
 function changePage(page) {
   const btnNext = document.getElementById("btnNext");
   const btnPrev = document.getElementById("btnPrev");
+  const btnNext2 = document.getElementById("btnNext2");
+  const btnPrev2 = document.getElementById("btnPrev2");
   if (page < 1) page = 1;
   if (page > maxPage) page = maxPage;
 
@@ -144,12 +152,21 @@ function changePage(page) {
     btnPrev.style.visibility = "visible";
   }
 
-  if (page == maxPage) {
-    btnNext.style.visibility = "hidden";
+  if (page == 1) {
+    btnPrev2.style.visibility = "hidden";
+    console.log(page);
   } else {
-    btnNext.style.visibility = "visible";
+    btnPrev2.style.visibility = "visible";
   }
 
+  if (page == maxPage) {
+    btnNext2.style.visibility = "hidden";
+  } else {
+    btnNext2.style.visibility = "visible";
+  }
+  
+  document.getElementById("navigation").style.display = "";
+  document.getElementById("navigation2").style.display = "";
   renderCharacters();
 }
 
